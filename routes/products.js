@@ -27,5 +27,12 @@ router.get('/:id', async(req, res) => {
     res.render('products/show', {product})
 })
 
+// edit route
+router.get('/:id/edit', async(req, res)=>{
+    const {id} = req.params;
+    const product = await Product.findById(id);
+    res.render('products/edit',{product});
+})
+
 // 
 module.exports = router;
