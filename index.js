@@ -1,7 +1,8 @@
 const express = require('express'),
 app = express(),
 path = require('path'),
-mongoose = require('mongoose')
+mongoose = require('mongoose'),
+methodOverride = require('method-override');
 // import routes
 const productRoute = require('./routes/products');
 // mongoose connection
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://localhost:27017/productdb', {
 app.set('view engine', "ejs");
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 // routes
 app.get('/', (req, res)=>{
     res.send('node index route')
