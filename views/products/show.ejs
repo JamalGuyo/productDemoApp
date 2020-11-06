@@ -1,11 +1,17 @@
 <%- include('../partials/header')  %> 
-   <h1><%= product.name %> </h1> 
-   <ul>
-       <li>Price: <%= product.price %> </li>
-       <li>category: <%= product.category %> </li>
-   </ul>
-    <br/>
-   <form method="POST" action="/products/<%=product._id%>?_method=DELETE">
-        <button>Delete</button>
-   </form>
+<div class="ui container">
+    <h1 class="ui header"><%= product.name %> </h1> 
+    <div class="ui card">
+        <div class="content">
+            <div class="item">Price: <%= product.price %> </div>
+            <div class="item">category: <%= product.category %> </div>
+        </ul>
+        <br/>
+        <a  class="ui basic button orange tiny" href="/products/<%=product._id%>/edit">Edit</a>
+        <form style="display: inline-block;" method="POST" action="/products/<%=product._id%>?_method=DELETE">
+            <button class="ui basic button red tiny orange">Delete</button>
+        </form>
+        </div>
+    </div>
+</div>
 <%- include('../partials/footer') %> 

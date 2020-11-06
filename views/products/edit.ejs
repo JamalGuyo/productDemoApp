@@ -1,19 +1,35 @@
 <%- include('../partials/header')  %> 
-   <h1>Edit product</h1> 
-   <form method="POST" action="/products/<%=product._id%>?_method=PUT">
-        <input type="text" name="name" placeholder="product name" value="<%= product.name%>"/>
-        <input type="number" name="price" placeholder="price" value="<%= product.price %>"/>
-        <select name="category">
-            <% for(category of categories){ %>
-                <option 
-                    value="<%=category%>" 
-                    <%= product.category == category ? "selected":""%>
-                >
-                    <%= category%>
-                </option>
-            <% } %>  
-        </select>
-        <button>submit</button>
-   </form>
-   
+<div class="ui container">
+
+    <h1 class="ui header">Edit product</h1> 
+    <div class="card">
+        <form class="ui form" method="POST" action="/products/<%=product._id%>?_method=PUT">
+            <div class="field">
+                <label id="name">Product Name</label>
+                <input id="name" type="text" name="name" placeholder="product name" value="<%= product.name%>"/>
+            </div>
+            <div class="field">
+                <label id="price">Price</label>
+                <input id="price"type="number" name="price" placeholder="price" value="<%= product.price %>"/>
+            </div>
+            <div class="field">
+                <label id="category">Category</label>
+                <select id="category" name="category">
+                    <% for(category of categories){ %>
+                        <option 
+                        value="<%=category%>" 
+                        <%= product.category == category ? "selected":""%>
+                        >
+                        <%= category%>
+                    </option>
+                    <% } %>  
+                </select>
+            </div>
+            <div class="field">
+                <button class="ui basic button primary">submit</button>
+            </div>
+        </form>
+    </div>
+        
+</div>
 <%- include('../partials/footer')  %> 
