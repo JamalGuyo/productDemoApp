@@ -8,7 +8,8 @@ const productRoute = require('./routes/products');
 // mongoose connection
 mongoose.connect('mongodb://localhost:27017/productdb', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 .then(() => console.log('database connection successful'))
 .catch((err) => console.log(err));

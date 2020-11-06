@@ -43,5 +43,11 @@ router.put('/:id', async(req, res)=>{
     res.redirect(`/products/${product._id}`);
 })
 
+// delete route
+router.delete('/:id', async(req, res) => {
+    const {id} = req.params;
+    await Product.findByIdAndDelete(id);
+    res.redirect('/products')
+})
 // 
 module.exports = router;
