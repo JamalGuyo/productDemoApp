@@ -21,10 +21,14 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 // routes
 app.get('/', (req, res)=>{
-    res.send('node index route')
+    res.redirect('/products')
 })
 // routes
 app.use('/products', productRoute);
+// wild card route
+app.get('*', (req, res) => {
+    res.send('404: Page Not Found :(')
+})
 // create listener
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Product server listening on port ${PORT}...`))
