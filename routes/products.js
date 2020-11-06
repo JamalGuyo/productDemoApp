@@ -7,6 +7,12 @@ router.get('/', async(req, res)=>{
     const products = await Product.find({});
     res.render('products/index', {products})
 })
+
+// new route
+router.get('/new', (req,res) => {
+    res.render('products/new');
+})
+
 // show route
 router.get('/:id', async(req, res) => {
     const {id} = req.params;
